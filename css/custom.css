@@ -105,6 +105,12 @@ div#archive {
   background-size: 100%;
 }
 
+/* 翻页按钮居中 */
+#pagination {
+  width: 100%;
+  margin: auto;
+}
+
 /* 鼠标样式 */
 #cursor {
     position: fixed;
