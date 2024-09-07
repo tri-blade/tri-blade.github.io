@@ -62,7 +62,7 @@ function musicBindEvent() {
 document.addEventListener('DOMContentLoaded', function() {
   // 这里可以放置需要在页面加载完成后立即执行的代码
   // 例如，如果你想在页面加载后立即绑定音乐事件：
-  // musicBindEvent();
+  musicBindEvent();
 });
 
 // 如果有右键事件，可以在这里写
