@@ -24,11 +24,10 @@
     z-index: 9;
     position: fixed;
     bottom: 20px;
-    right: 20px; /* 改为右侧 */
-    left: auto; /* 移除左侧定位 */
+    left: 20px;
     cursor: pointer;
     transition: 0.5s;
-    transform-origin: right bottom; /* 改变变换原点 */
+    transform-origin: left bottom;
     box-shadow: var(--anzhiyu-shadow-border);
     border-radius: 40px;
     overflow: hidden;
@@ -47,9 +46,11 @@
     0% {
         box-shadow: 0 0px 12px -3px var(--anzhiyu-none);
     }
+
     50% {
         box-shadow: 0 0px 12px 0px var(--anzhiyu-main);
     }
+
     100% {
         box-shadow: 0 0px 12px -3px var(--anzhiyu-none);
     }
@@ -79,18 +80,22 @@
         transform: rotate(0deg) scale(1.1);
         box-shadow: 0 0 2px #ffffff00;
     }
+
     25% {
         transform: rotate(90deg) scale(1.1);
         box-shadow: 0 0 14px #ffffff;
     }
+
     50% {
         transform: rotate(180deg) scale(1.1);
         box-shadow: 0 0 2px #ffffff00;
     }
+
     75% {
         transform: rotate(270deg) scale(1.1);
         box-shadow: 0 0 14px #ffffff;
     }
+
     100% {
         transform: rotate(360deg) scale(1.1);
         box-shadow: 0 0 2px #ffffff00;
@@ -150,7 +155,6 @@
     transition: 0.3s;
     border: var(--style-border);
     box-shadow: none;
-    flex-direction: row-reverse; /* 反转 flex 方向 */
 }
 
 #nav-music.playing .aplayer {
@@ -172,7 +176,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    flex-direction: row-reverse; /* 反转 flex 方向 */
 }
 
 #nav-music .aplayer-list {
@@ -183,7 +186,7 @@
     margin: 0;
     display: flex;
     align-items: center;
-    padding: 0 8px 0 12px; /* 调整内边距 */
+    padding: 0 12px 0 8px;
     cursor: pointer;
     z-index: 1;
     height: 100%;
@@ -215,8 +218,7 @@
 }
 
 #nav-music .aplayer.aplayer-withlrc .aplayer-pic {
-    margin-right: 8px; /* 改为右侧边距 */
-    margin-left: 0; /* 移除左侧边距 */
+    margin-left: 8px;
 }
 
 #nav-music .aplayer .aplayer-info .aplayer-music .aplayer-title {
@@ -269,9 +271,11 @@
     0% {
         opacity: 0.1;
     }
+
     60% {
         opacity: 0.3;
     }
+
     100% {
         opacity: 0.1;
     }
@@ -287,8 +291,7 @@
 }
 
 #nav-music.stretch .aplayer.aplayer-withlrc .aplayer-lrc {
-    margin-right: 8px; /* 改为右侧边距 */
-    margin-left: 0; /* 移除左侧边距 */
+    margin-left: 8px;
 }
 
 #nav-music.stretch .aplayer.aplayer-withlrc .aplayer-lrc {
