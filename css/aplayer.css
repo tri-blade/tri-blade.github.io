@@ -24,7 +24,7 @@
     z-index: 9;
     position: fixed;
     bottom: 20px;
-    left: 100px;
+    left: 60px; /* 增加左侧距离 */
     cursor: pointer;
     transition: 0.5s;
     transform-origin: left bottom;
@@ -298,6 +298,7 @@
     width: 200px;
     margin-bottom: 0;
     opacity: 1;
+    margin-left: 8px; /* 保持左侧边距 */
 }
 
 #nav-music .aplayer .aplayer-lrc p.aplayer-lrc-current {
