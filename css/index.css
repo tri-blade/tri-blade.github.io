@@ -6846,7 +6846,7 @@ blockquote.pullquote.right {
 }
 
 .author-content-item.game-yuanshen {
-    background: url(https://cdn.jsdelivr.net/gh/ImageRex/ImageRex@main/OPUS.gif) no-repeat top;
+    background: url(https://cdn.jsdelivr.net/gh/ImageRex/ImageRex@main/opus.gif) no-repeat top;
     background-size: cover;
     min-height: 300px;
     overflow: hidden;
@@ -6874,7 +6874,7 @@ blockquote.pullquote.right {
 }
 
 .icon-pos-mid {
-    background: url(https://cdn.jsdelivr.net/gh/ImageRex/ImageRex@main/Jay_Chou.jpg);
+    background: url(https://img02.anheyu.com/adminuploads/1/2022/09/25/632fb9cecfc8c.png);
 }
 
 .author-content-item.game-yuanshen::after {
