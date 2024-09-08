@@ -7360,7 +7360,7 @@ blockquote.pullquote.right {
     font: inherit;
     vertical-align: baseline;
     line-height: 1;
-    font-size: calc((0.0989119683 * 100vw + (38.5558852621px)));
+    font-size: calc((0.0989119683 * 70vw + (38.5558852621px)));
     width: 100%;
     height: 100%;
     display: flex;
@@ -7370,7 +7370,7 @@ blockquote.pullquote.right {
 
 @media (min-width: 419px) {
     .hello-about h1 {
-        font-size: calc((0.0989119683 * 100vw + (38.5558852621px)));
+        font-size: calc((0.0989119683 * 70vw + (38.5558852621px)));
     }
 }
 
