@@ -6907,14 +6907,14 @@ blockquote.pullquote.right {
 }
 
 .author-content-item.like-technology {
-    background: url(https://img02.anheyu.com/adminuploads/1/2022/09/24/632f0dd8f33c6.webp) no-repeat;
+    background: url(https://cdn.jsdelivr.net/gh/ImageRex/ImageRex@main/technology.avif) no-repeat;
     background-size: cover;
     min-height: 230px;
     color: var(--anzhiyu-white);
 }
 
 .author-content-item.like-music {
-    background: url(https://ww1.sinaimg.cn/mw690/6baa1682ly1hrnc242pzcj21e72h4kjl.jpg) no-repeat top;
+    background: url(https://cdn.jsdelivr.net/gh/ImageRex/ImageRex@main/JayChou.jpg) no-repeat top;
     background-size: cover;
     min-height: 400px;
     color: var(--anzhiyu-white);
