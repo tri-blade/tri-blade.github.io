@@ -35,7 +35,7 @@ async function loadAll() {
       loadCSS('https://cdn.jsdelivr.net/gh/journey-ad/blog-img@76ba2b3/live2d/lib/pio.css'),
     ]);
 
-    // 这些脚本可能依赖于之前加载的库，所以我们按顺序加载它们
+    // 加载依赖项
     await loadScript('https://cdn.jsdelivr.net/gh/journey-ad/blog-img@76ba2b3/live2d/lib/pio.js');
     await loadScript('https://cdn.jsdelivr.net/gh/journey-ad/blog-img@76ba2b3/live2d/lib/pio_sdk4.js');
     await loadScript('https://cdn.jsdelivr.net/gh/journey-ad/blog-img@76ba2b3/live2d/lib/load.js');
