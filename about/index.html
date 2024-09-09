@@ -164,6 +164,19 @@
     return top <= viewPortHeight;
   }
 
+  function throttle(func, wait) {
+    let timeout;
+    return function() {
+      const context = this, args = arguments;
+      if (!timeout) {
+        timeout = setTimeout(() => {
+          timeout = null;
+          func.apply(context, args);
+        }, wait);
+      }
+    };
+  }
+
   function updateBusuanziStats() {
     if (typeof busuanzi === 'undefined') {
       setTimeout(updateBusuanziStats, 300);
@@ -203,7 +216,7 @@
         }
       }
 
-      const throttleStatisticUP = btf.throttle(statisticUP, 200);
+      const throttleStatisticUP = throttle(statisticUP, 200);
       document.addEventListener('scroll', throttleStatisticUP, { passive: true });
     }
   }
@@ -228,7 +241,7 @@
     }
   }
 
-  const throttleScrollSelfInfoContentYear = btf.throttle(scrollSelfInfoContentYear, 200);
+  const throttleScrollSelfInfoContentYear = throttle(scrollSelfInfoContentYear, 200);
   document.addEventListener('scroll', throttleScrollSelfInfoContentYear, { passive: true });
 
   var pursuitInterval = null;
