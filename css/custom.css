@@ -265,10 +265,13 @@ div#archive {
     background-position: 200% 50%;
   }
 }
+
 .animated-gradient {
-  background: linear-gradient(270deg, #216185, #B5CFD4, #959434);
+  background: linear-gradient(270deg, #216185, #B5CFD4, #959434, #216185);
+  background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
+  color: transparent;
   -webkit-text-fill-color: transparent;
   animation: gradient-shift 6s linear infinite;
 }
