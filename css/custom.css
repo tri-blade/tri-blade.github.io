@@ -174,11 +174,9 @@ div#archive {
   
 /* 嘉然 */
 #pio {
-  height: 240px;
+	height: 240px;
   vertical-align: middle;
-  z-index: 1;
-  /* 靠底部对齐 */
-  /* 可选：添加一些边距，使元素不完全贴在角落 */
+  min-width: 240px;
 }
 
 /* 波浪css */
