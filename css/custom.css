@@ -257,7 +257,6 @@ div#archive {
 
 /* Title word */
 .animated-gradient {
-  font-size: 2em;
   background: linear-gradient(270deg, #185864, #F9A647, #E2D8D0);
   background-clip: text;
   -webkit-text-fill-color: transparent;
