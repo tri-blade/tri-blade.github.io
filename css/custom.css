@@ -254,10 +254,8 @@ div#archive {
   }
 }
 
-/* Google Fonts for Open Sans */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&amp;display=swap');
 
-/* Define animation */
+/* Title word */
 @keyframes gradient-shift {
   0% {
     background-position: 0%
@@ -268,11 +266,9 @@ div#archive {
   }
 }
 
-/* Styling our animated gradient text */
 .animated-gradient {
-  font-family: 'Open Sans', sans-serif;
   font-size: 2em;
-  background: linear-gradient(270deg, #ff4b59, #ff9057, #ffc764, #50e3c2, #4a90e2, #b8e986, #ff4b59);
+  background: linear-gradient(270deg, #185864, #F9A647, #E2D8D0);
   background-size: 200%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
