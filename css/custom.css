@@ -258,17 +258,17 @@ div#archive {
 /* Title word */
 @keyframes gradient-shift {
   0% {
-    background-position: 0%
+    background-position: 0% 50%;
   }
 
   100% {
-    background-position: 100%
+    background-position: 200% 50%;
   }
 }
-
 .animated-gradient {
-  background: linear-gradient(270deg, #185864, #F9A647, #E2D8D0);
+  background: linear-gradient(270deg, #216185, #B5CFD4, #959434);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
+  animation: gradient-shift 6s linear infinite;
 }
