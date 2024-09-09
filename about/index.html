@@ -164,45 +164,28 @@
     return top <= viewPortHeight;
   }
 
-  function getBusuanziData() {
-    return new Promise((resolve, reject) => {
-      let retryCount = 0;
-      const maxRetries = 5;
-      const retryInterval = 1000; // 1 second
-
-      function tryFetch() {
-        if (typeof busuanzi === 'undefined') {
-          if (retryCount < maxRetries) {
-            retryCount++;
-            setTimeout(tryFetch, retryInterval);
-          } else {
-            reject(new Error('Failed to load busuanzi after multiple retries'));
-          }
-          return;
-        }
-
-        busuanzi.fetch().then(() => {
-          const siteUV = document.getElementById('busuanzi_value_site_uv').textContent;
-          const sitePV = document.getElementById('busuanzi_value_site_pv').textContent;
-          resolve({ siteUV, sitePV });
-        }).catch(reject);
-      }
-
-      tryFetch();
-    });
+  function updateBusuanziStats() {
+    if (typeof busuanzi === 'undefined') {
+      setTimeout(updateBusuanziStats, 300);
+      return;
+    }
+    busuanzi.fetch();
   }
 
-  getBusuanziData().then((data) => {
-    let title = ['站点访客数', '站点总访问量'];
-    let num = [data.siteUV, data.sitePV];
+  function initCountUp() {
     let statisticEl = document.getElementById('statistic');
-
     if (statisticEl) {
-      let statistic = [];
-      for (let i = 0; i < num.length; i++) {
-        statisticEl.innerHTML += '<div><span>' + title[i] + '</span><span id="'+ title[i] + '">' + num[i] + '</span></div>';
-        queueMicrotask(() => {
-          statistic.push(new CountUp(title[i], 0, parseInt(num[i]), 0, 2, {
+      const stats = [
+        { id: 'busuanzi_value_site_pv', title: '本站总访问量' },
+        { id: 'busuanzi_value_site_uv', title: '本站总访客数' },
+        { id: 'busuanzi_value_page_pv', title: '本文总阅读量' }
+      ];
+
+      let counters = [];
+      stats.forEach(stat => {
+        let el = document.getElementById(stat.id);
+        if (el) {
+          counters.push(new CountUp(stat.id, 0, parseInt(el.innerText) || 0, 0, 2, {
             useEasing: true,
             useGrouping: true,
             separator: ',',
@@ -210,13 +193,12 @@
             prefix: '',
             suffix: ''
           }));
-        });
-      }
+        }
+      });
 
       function statisticUP() {
-        let statisticElement = document.querySelector('.about-statistic.author-content-item');
-        if (isInViewPortOfOne(statisticElement)) {
-          statistic.forEach(counter => counter.start());
+        if (isInViewPortOfOne(statisticEl)) {
+          counters.forEach(counter => counter.start());
           document.removeEventListener('scroll', throttleStatisticUP);
         }
       }
@@ -224,27 +206,30 @@
       const throttleStatisticUP = btf.throttle(statisticUP, 200);
       document.addEventListener('scroll', throttleStatisticUP, { passive: true });
     }
+  }
 
-    const selfInfoContentYear = new CountUp('selfInfo-content-year', 0, 2002, 0, 2, {
-      useEasing: true,
-      useGrouping: false,
-      separator: ',',
-      decimal: '.',
-      prefix: '',
-      suffix: ''
-    });
+  updateBusuanziStats();
+  initCountUp();
 
-    function scrollSelfInfoContentYear() {
-      let selfInfoContentYearElement = document.querySelector('.author-content-item.selfInfo.single');
-      if (selfInfoContentYearElement && isInViewPortOfOne(selfInfoContentYearElement)) {
-        selfInfoContentYear.start();
-        document.removeEventListener('scroll', throttleScrollSelfInfoContentYear);
-      }
+  const selfInfoContentYear = new CountUp('selfInfo-content-year', 0, 2002, 0, 2, {
+    useEasing: true,
+    useGrouping: false,
+    separator: ',',
+    decimal: '.',
+    prefix: '',
+    suffix: ''
+  });
+
+  function scrollSelfInfoContentYear() {
+    let selfInfoContentYearElement = document.querySelector('.author-content-item.selfInfo.single');
+    if (selfInfoContentYearElement && isInViewPortOfOne(selfInfoContentYearElement)) {
+      selfInfoContentYear.start();
+      document.removeEventListener('scroll', throttleScrollSelfInfoContentYear);
     }
+  }
 
-    const throttleScrollSelfInfoContentYear = btf.throttle(scrollSelfInfoContentYear, 200);
-    document.addEventListener('scroll', throttleScrollSelfInfoContentYear, { passive: true });
-  }).catch(error => console.error('Error fetching busuanzi data:', error));
+  const throttleScrollSelfInfoContentYear = btf.throttle(scrollSelfInfoContentYear, 200);
+  document.addEventListener('scroll', throttleScrollSelfInfoContentYear, { passive: true });
 
   var pursuitInterval = null;
   pursuitInterval = setInterval(function () {
