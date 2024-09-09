@@ -256,6 +256,16 @@ div#archive {
 
 
 /* Title word */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0%
+  }
+
+  100% {
+    background-position: 100%
+  }
+}
+
 .animated-gradient {
   background: linear-gradient(270deg, #185864, #F9A647, #E2D8D0);
   background-clip: text;
