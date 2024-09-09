@@ -1,10 +1,10 @@
 // 全局变量定义
-var triblade_musicPlaying = false;
-var triblade_musicFirst = false;
-var navMusicEl = null;
+let triblade_musicPlaying = false;
+let triblade_musicFirst = false;
+let navMusicEl = null;
 
 // 主要功能对象
-var triblade = {
+const triblade = {
   // 切换音乐播放状态
   musicToggle: function (changePaly = true) {
     if (!navMusicEl) {
@@ -14,18 +14,16 @@ var triblade = {
       musicBindEvent();
       triblade_musicFirst = true;
     }
-    let msgPlay = '<i class="fa-solid fa-play"></i><span>播放音乐</span>';
-    let msgPause = '<i class="fa-solid fa-pause"></i><span>暂停音乐</span>';
+    
     if (triblade_musicPlaying) {
-      navMusicEl.classList.remove("playing");
+      navMusicEl?.classList.remove("playing", "stretch");
       document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
       triblade_musicPlaying = false;
-      navMusicEl.classList.remove("stretch");
     } else {
-      navMusicEl.classList.add("playing");
+      navMusicEl?.classList.add("playing", "stretch");
       triblade_musicPlaying = true;
-      navMusicEl.classList.add("stretch");
     }
+    
     if (changePaly) {
       const aplayerInstance = document.querySelector("#nav-music meting-js")?.aplayer;
       if (aplayerInstance) {
@@ -35,35 +33,26 @@ var triblade = {
       }
     }
   },
-
+  
   // 音乐伸缩
   musicTelescopic: function () {
-    if (!navMusicEl) {
-      navMusicEl = document.getElementById("nav-music");
-    }
-    navMusicEl.classList.toggle("stretch");
+    navMusicEl?.classList.toggle("stretch");
   },
-
+  
   // 音乐上一曲
   musicSkipBack: function () {
-    const aplayerInstance = document.querySelector("#nav-music meting-js")?.aplayer;
-    if (aplayerInstance) {
-      aplayerInstance.skipBack();
-    }
+    document.querySelector("#nav-music meting-js")?.aplayer?.skipBack();
   },
-
+  
   // 音乐下一曲
   musicSkipForward: function () {
-    const aplayerInstance = document.querySelector("#nav-music meting-js")?.aplayer;
-    if (aplayerInstance) {
-      aplayerInstance.skipForward();
-    }
+    document.querySelector("#nav-music meting-js")?.aplayer?.skipForward();
   },
-
+  
   // 获取音乐中的名称
   musicGetName: function () {
-    var x = document.querySelectorAll(".aplayer-title");
-    return x[x.length - 1]?.innerText || "";
+    const titles = document.querySelectorAll(".aplayer-title");
+    return titles[titles.length - 1]?.innerText || "";
   },
 };
 
@@ -71,14 +60,9 @@ var triblade = {
 function musicBindEvent() {
   const musicEl = document.querySelector("#nav-music .aplayer-music");
   const buttonEl = document.querySelector("#nav-music .aplayer-button");
-  
-  if (musicEl) {
-    musicEl.addEventListener("click", triblade.musicTelescopic);
-  }
-  
-  if (buttonEl) {
-    buttonEl.addEventListener("click", () => triblade.musicToggle(false));
-  }
+ 
+  musicEl?.addEventListener("click", triblade.musicTelescopic);
+  buttonEl?.addEventListener("click", () => triblade.musicToggle(false));
 }
 
 // 初始化
@@ -90,9 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // 为了确保 meting-js 元素加载完成后再进行操作
-document.addEventListener('meting-js-loaded', function() {
-  musicBindEvent();
-});
+document.addEventListener('meting-js-loaded', musicBindEvent);
 
 // 添加一个全局错误处理
 window.onerror = function(message, source, lineno, colno, error) {
