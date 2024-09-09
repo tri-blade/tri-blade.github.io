@@ -176,11 +176,7 @@ div#archive {
 #pio {
   height: 240px;
   vertical-align: middle;
-  position: fixed;
-  /* 保持元素固定在视窗中 */
-  left: 0;
-  /* 靠左对齐 */
-  bottom: 0;
+  z-index: 1;
   /* 靠底部对齐 */
   /* 可选：添加一些边距，使元素不完全贴在角落 */
 }
