@@ -786,23 +786,3 @@ else
     window.SmoothScroll = SmoothScroll;
 
 })();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const header = document.getElementById('page-header');
-  const content = document.querySelector('.recent-posts') || document.getElementById('post-content');
-
-  if (header && content) {
-    header.addEventListener('wheel', function(event) {
-      // 检查是否为中键（滚轮）滚动
-      if (event.buttons === 4 || event.button === 1) {
-        event.preventDefault(); // 阻止默认滚动行为
-
-        // 如果是向下滚动
-        if (event.deltaY > 0) {
-          // 平滑滚动到内容位置
-          content.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  }
-});
