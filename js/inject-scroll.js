@@ -2,7 +2,6 @@
             var header = document.getElementById('page-header');
 
             header.addEventListener('wheel', function(event) {
-                event.preventDefault();  // 阻止默认滚动行为
                 var delta = event.deltaY;
                 var rect = header.getBoundingClientRect();
                 var middleY = rect.top + rect.height / 2;
