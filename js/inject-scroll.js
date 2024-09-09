@@ -1,24 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.getElementById('page-header');
-  const content = document.querySelector('.recent-posts') || document.getElementById('post-content');
+  const contentInner = document.querySelector('.content-inner');
 
-  if (header && content) {
+  if (header && contentInner) {
+    // 创建 SmoothScroll 实例
+    const smoothScroll = new SmoothScroll();
+
     header.addEventListener('wheel', function(event) {
-      // 检查是否为中键（滚轮）滚动
-      if (event.buttons === 4 || event.button === 1) {
+      // 检查是否为向下滚动
+      if (event.deltaY > 0) {
         event.preventDefault(); // 阻止默认滚动行为
 
-        // 如果是向下滚动
-        if (event.deltaY > 0) {
-          // 使用 SmoothScroll 的 API 来滚动
-          if (typeof SmoothScroll !== 'undefined') {
-            var scroll = new SmoothScroll();
-            scroll.animateScroll(content);
-          } else {
-            // 如果 SmoothScroll 不可用，使用原生的平滑滚动
-            content.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
+        // 使用 SmoothScroll 滚动到 content-inner
+        smoothScroll.animateScroll(contentInner, header, {
+          speed: 500, // 滚动速度，可以根据需要调整
+          offset: 0 // 偏移量，可以根据需要调整
+        });
       }
     });
   }
