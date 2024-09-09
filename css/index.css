@@ -2988,9 +2988,7 @@ h1.page-title + .tag-cloud-list {
   animation: more-btn-move 1s infinite;
 }
 #aside-content .card-announcement .item-headline {
-  font-weight: bold;
   color: #4a4a4a;
-  padding-left: 10px;
 }
 .avatar-img {
   overflow: hidden;
