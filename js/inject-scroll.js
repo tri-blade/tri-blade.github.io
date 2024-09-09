@@ -4,7 +4,7 @@
             header.addEventListener('wheel', function(event) {
                 var delta = event.deltaY;
                 var rect = header.getBoundingClientRect();
-                var middleY = rect.top + rect.height / 2;
+                var middleY = rect.top + rect.height*9 / 10;
                 var mouseY = event.clientY; // 获取鼠标在视口中的Y坐标
 
                 if (mouseY <= middleY) { // 只有当鼠标在header的中间部分以上时触发
